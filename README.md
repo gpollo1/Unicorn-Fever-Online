@@ -1,119 +1,111 @@
-🦄 Unicorn Fever Online 🎲
+# 🦄 Unicorn Fever Online
+**Unicorn Fever** è un gioco multiplayer di scommesse su corse di unicorni, sviluppato con **Flutter** (client) e **Dart** (server).  
+I giocatori possono scommettere sui cavalli unicorni, usare carte bonus/malus e seguire la corsa in tempo reale.
 
-Unicorn Fever è un gioco multiplayer online dove i giocatori scommettono su corse di unicorni!
-Sviluppato con Flutter per il client mobile e Dart per il server, il gioco combina strategia, fortuna e interazione in tempo reale.
+---
 
-📂 Struttura del Progetto
-Cartella	Descrizione
-server/	Codice del server in Dart, gestisce connessioni e logica di gioco
-client/	App Flutter per dispositivi mobili Android/iOS
-assets/images/	Immagini di sfondo, carte bonus/malus e risorse grafiche
-⚙️ Requisiti
+## 🎮 Caratteristiche principali
 
-Dart SDK >= 3.0.0
+- Multiplayer locale o su rete LAN (tramite socket TCP)
+- Corse di unicorni con animazioni fluide
+- Sistema di scommesse e gestione del denaro dei giocatori
+- Carte **bonus** e **malus** per modificare la velocità degli unicorni
+- Risultati visualizzati alla fine di ogni round
+- Partite a più round con schermata finale e dichiarazione del vincitore
 
-Flutter SDK >= 3.0.0
+---
 
-Dispositivo mobile o emulatore Android/iOS
+## 📂 Struttura del progetto
 
-Server e client devono essere sulla stessa rete locale (Wi-Fi)
+unicorn-fever/
+├─ assets/
+│ ├─ images/ # Immagini di sfondi, cavalli, carte, monete
+├─ lib/
+│ ├─ models/ # Modelli: Player, Horse, GameState
+│ ├─ network/ # SocketService per connessione server
+│ ├─ screens/ # Schermate: Connect, Betting, Cards, Race, Results
+│ ├─ main.dart # Entry point del client Flutter
+└─ server/
+└─ server.dart # Server Dart per gestire la logica di gioco
 
-🚀 Installazione
+yaml
+Copia codice
 
-Clona il repository
+---
 
-git clone <url-del-progetto>
-cd unicorn_client
+## ⚡ Requisiti
 
+- Flutter >= 3.0
+- Dart >= 3.0
+- Dispositivi client e server sulla stessa rete LAN
+- Assets (immagini) presenti in `assets/images/`
 
+---
+
+## 🚀 Installazione
+
+1. **Clona il repository**  
+
+```bash
+git clone <URL_DEL_REPO>
+cd unicorn-fever
 Installa le dipendenze Flutter
 
+bash
+Copia codice
 flutter pub get
+Avvia il server Dart
 
-
-Controlla pubspec.yaml
-Assicurati che siano presenti:
-
-dependencies:
-  flutter:
-    sdk: flutter
-  cupertino_icons: ^1.0.8
-  web_socket_channel: ^2.2.0
-
-
-Assets
-Verifica che le immagini siano presenti in assets/images/ e dichiarate nel pubspec.yaml:
-
-flutter:
-  assets:
-    - assets/images/
-
-🖥️ Avvio del Server
-
-Apri il terminale nella cartella del server.
-
-Avvia il server:
-
+bash
+Copia codice
+cd server
 dart run server.dart
+Avvia il client Flutter
 
-
-Il server ascolta sulla porta 3000 e assegna automaticamente gli ID ai giocatori.
-
-⚠️ Assicurati che il firewall consenta il traffico sulla porta 3000.
-
-Il server gestisce tutte le fasi del gioco:
-
-attesa giocatori → scommesse → carte → corsa → risultati
-
-📱 Avvio del Client
-
-Apri il terminale nella cartella del client Flutter.
-
-Avvia l’app sul dispositivo o emulator:
-
+bash
+Copia codice
 flutter run
+Assicurati che i dispositivi siano sulla stessa rete per permettere la connessione.
 
+🎲 Come giocare
+Connessione: premi CONNETTITI nella schermata iniziale.
 
-Premi CONNETTITI nella schermata iniziale.
+Scommesse: seleziona un unicorno e scegli la puntata.
 
-Il client si collega al server utilizzando l’IP locale del PC:
+Carte: assegna fino a 3 carte bonus/malus agli unicorni.
 
-String host = '192.168.x.x'; // IP del PC che esegue il server
-int port = 3000;
+Corsa: osserva gli unicorni correre e attendi i risultati.
 
+Risultati: vinci o perdi denaro in base alle scommesse.
 
-⚠️ PC e telefono devono essere connessi allo stesso Wi-Fi.
+Round successivi: premi PROSSIMO ROUND fino al termine del gioco.
 
-🎮 Come Funziona il Gioco
-Fasi del gioco (GamePhase)
-Fase	Descrizione
-waitingPlayers	In attesa che tutti i giocatori si connettano
-betting	Scommesse sui cavalli unicorni
-cards	Assegnazione di carte bonus o malus ai cavalli
-race	Corsa dei cavalli, visualizzata passo-passo
-results	Risultati del round e aggiornamento soldi
-Carte
+Fine partita: visualizza il vincitore e i soldi finali.
 
-Bonus → aumenta la velocità del cavallo
+🛠️ Architettura
+Client Flutter: gestione UI, animazioni e invio/ricezione eventi via socket
 
-Malus → diminuisce la velocità del cavallo
+Server Dart: gestione logica di gioco, step-by-step della corsa, carte e scommesse
 
-Round e Vittoria
+GameState: struttura condivisa client-server, aggiornata in tempo reale
 
-Il gioco prevede un massimo di 3 round (maxRounds)
+SocketService: comunicazione TCP
 
-Alla fine dell’ultimo round, gameFinished = true → viene mostrata la schermata finale
+RaceScreen: animazioni dei cavalli e visualizzazione dei risultati
 
-⚠️ Note Importanti
+CardsScreen: logica per assegnare carte bonus/malus
 
-Tutti i giocatori devono premere NEXT per passare al round successivo.
+BettingScreen: selezione dell’unicorno e puntata
 
-Il server invia continuamente lo stato del gioco via WebSocket.
+🎨 Assets richiesti
+c1.jpg … c6.jpg → immagini dei cavalli
 
-Se il caricamento sul telefono resta infinito, verifica:
+b1.jpg, b2.jpg → carte bonus
 
-IP del server corretto
+m1.jpg, m2.jpg → carte malus
 
-PC e dispositivo sulla stessa rete Wi-Fi
+sfondo.jpg, sfondo-gara.png → sfondi
 
-Porta 3000 aperta nel firewall
+banca.png, coin.png → elementi UI per denaro e puntate
+
+Verifica che tutti gli assets siano presenti nella cartella assets/images e dichiarati in pubspec.yaml.
