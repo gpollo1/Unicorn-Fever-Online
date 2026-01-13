@@ -17,17 +17,16 @@ I giocatori possono scommettere sui cavalli unicorni, usare carte bonus/malus e 
 
 ##Struttura del progetto
 
-unicorn-fever/
-├─ assets/
-│ ├─ images/ # Immagini di sfondi, cavalli, carte, monete
-├─ lib/
-│ ├─ models/ # Modelli: Player, Horse, GameState
-│ ├─ network/ # SocketService per connessione server
-│ ├─ screens/ # Schermate: Connect, Betting, Cards, Race, Results
-│ ├─ main.dart # Entry point del client Flutter
-└─ server/
-└─ server.dart # Server Dart per gestire la logica di gioco
-
+**unicorn-fever/**  
+- **assets/**  
+  - **images/** → Immagini di sfondi, cavalli, carte, monete  
+- **lib/**  
+  - **models/** → Modelli: Player, Horse, GameState  
+  - **network/** → SocketService per connessione server  
+  - **screens/** → Schermate: Connect, Betting, Cards, Race, Results  
+  - **main.dart** → Entry point del client Flutter  
+- **server/**  
+  - **server.dart** → Server Dart per gestire la logica di gioco
 ---
 
 ##Requisiti
@@ -49,23 +48,24 @@ Assicurati di avere Flutter installato sul PC.
 - Apri il progetto in Android Studio
 - Seleziona “Open an existing project” e punta alla cartella principale del gioco.
 Attenzione necessario avere 2 emulatori per testare il gioco ed è anche necessario andare a cambiare l'indirizzo ip del server mettendo quello del proprio pc dove viene eseguito il server.
+
 ##Come giocare
-- **Connessione: premi CONNETTITI nella schermata iniziale.
-- **Scommesse: seleziona un unicorno e scegli la puntata.
-- **Carte: assegna fino a 3 carte bonus/malus agli unicorni.
-- **Corsa: osserva gli unicorni correre e attendi i risultati.
-- **Risultati: vinci o perdi denaro in base alle scommesse.
-- **Round successivi: premi PROSSIMO ROUND fino al termine del gioco.
-- **Fine partita: visualizza il vincitore e i soldi finali.
+- Connessione: premi CONNETTITI nella schermata iniziale.
+- Scommesse: seleziona un unicorno e scegli la puntata.
+- Carte: assegna fino a 3 carte bonus/malus agli unicorni.
+- Corsa: osserva gli unicorni correre e attendi i risultati.
+- Risultati: vinci o perdi denaro in base alle scommesse.
+- Round successivi: premi PROSSIMO ROUND fino al termine del gioco.
+- Fine partita: visualizza il vincitore e i soldi finali.
 
 ##Architettura
-- **Client Flutter: gestione UI, animazioni e invio/ricezione eventi via socket
-- **Server Dart: gestione logica di gioco, step-by-step della corsa, carte e scommesse
-- **GameState: struttura condivisa client-server, aggiornata in tempo reale
-- **SocketService: comunicazione TCP
-- **RaceScreen: animazioni dei cavalli e visualizzazione dei risultati
-- **CardsScreen: logica per assegnare carte bonus/malus
-- **BettingScreen: selezione dell’unicorno e puntata
+- Client Flutter: gestione UI, animazioni e invio/ricezione eventi via socket
+- Server Dart: gestione logica di gioco, step-by-step della corsa, carte e scommesse
+- GameState: struttura condivisa client-server, aggiornata in tempo reale
+- SocketService: comunicazione TCP
+- RaceScreen: animazioni dei cavalli e visualizzazione dei risultati
+- CardsScreen: logica per assegnare carte bonus/malus
+- BettingScreen: selezione dell’unicorno e puntata
 
 ##Assets richiesti
 - c1.jpg … c6.jpg → immagini dei cavalli
