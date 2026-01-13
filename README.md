@@ -1,10 +1,10 @@
-#Unicorn Fever Online
+# Unicorn Fever Online
 **Unicorn Fever** è un gioco multiplayer di scommesse su corse di unicorni, sviluppato con **Flutter** (client) e **Dart** (server).  
 I giocatori possono scommettere sui cavalli unicorni, usare carte bonus/malus e seguire la corsa in tempo reale.
 
 ---
 
-##Caratteristiche principali
+## Caratteristiche principali
 
 - Multiplayer locale o su rete LAN (tramite socket TCP)
 - Corse di unicorni con animazioni fluide
@@ -15,7 +15,7 @@ I giocatori possono scommettere sui cavalli unicorni, usare carte bonus/malus e 
 
 ---
 
-##Struttura del progetto
+## Struttura del progetto
 
 **unicorn-fever/**  
 - **assets/**  
@@ -29,7 +29,7 @@ I giocatori possono scommettere sui cavalli unicorni, usare carte bonus/malus e 
   - **server.dart** → Server Dart per gestire la logica di gioco
 ---
 
-##Requisiti
+## Requisiti
 
 - Flutter >= 3.0
 - Dart >= 3.0
@@ -38,7 +38,7 @@ I giocatori possono scommettere sui cavalli unicorni, usare carte bonus/malus e 
 
 ---
 
-##Installazione
+## Installazione
 Assicurati di avere Flutter installato sul PC.
 - Installa Android Studio o un altro IDE compatibile con Flutter.
 - Verifica che l’ambiente Flutter sia configurato correttamente con flutter doctor.
@@ -49,7 +49,7 @@ Assicurati di avere Flutter installato sul PC.
 - Seleziona “Open an existing project” e punta alla cartella principale del gioco.
 Attenzione necessario avere 2 emulatori per testare il gioco ed è anche necessario andare a cambiare l'indirizzo ip del server mettendo quello del proprio pc dove viene eseguito il server.
 
-##Come giocare
+## Come giocare
 - Connessione: premi CONNETTITI nella schermata iniziale.
 - Scommesse: seleziona un unicorno e scegli la puntata.
 - Carte: assegna fino a 3 carte bonus/malus agli unicorni.
@@ -58,7 +58,7 @@ Attenzione necessario avere 2 emulatori per testare il gioco ed è anche necessa
 - Round successivi: premi PROSSIMO ROUND fino al termine del gioco.
 - Fine partita: visualizza il vincitore e i soldi finali.
 
-##Architettura
+## Architettura
 - Client Flutter: gestione UI, animazioni e invio/ricezione eventi via socket
 - Server Dart: gestione logica di gioco, step-by-step della corsa, carte e scommesse
 - GameState: struttura condivisa client-server, aggiornata in tempo reale
@@ -67,7 +67,7 @@ Attenzione necessario avere 2 emulatori per testare il gioco ed è anche necessa
 - CardsScreen: logica per assegnare carte bonus/malus
 - BettingScreen: selezione dell’unicorno e puntata
 
-##Assets richiesti
+## Assets richiesti
 - c1.jpg … c6.jpg → immagini dei cavalli
 - b1.jpg, b2.jpg → carte bonus
 - m1.jpg, m2.jpg → carte malus
